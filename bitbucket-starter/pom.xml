@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.sadtech.bitbucketbot.local</groupId>
+        <artifactId>bitbucketbot-local</artifactId>
+        <version>0.0.1-RELEASE</version>
+    </parent>
+
+    <artifactId>bitbucketbot-starter-local</artifactId>
+    <version>0.0.1-RELEASE</version>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.sadtech.bot.bitbucketbot</groupId>
+            <artifactId>bitbucketbot-core</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.sadtech.bot.bitbucketbot</groupId>
+            <artifactId>bitbucketbot-data</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.sadtech.bot.godfather</groupId>
+            <artifactId>telegram-bot</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.liquibase</groupId>
+            <artifactId>liquibase-core</artifactId>
+            <version>3.8.9</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>2.4.0</version>
+                <configuration>
+                    <finalName>bitbucketbot-local</finalName>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

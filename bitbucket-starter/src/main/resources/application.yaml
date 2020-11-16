@@ -1,0 +1,5 @@
+spring:
+  liquibase:
+    change-log: db/changelog/change-log.xml
+bitbucketbot:
+  version: 1.0.0

@@ -1,0 +1,20 @@
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: ${DATASOURCE_URL}
+    password: ${DATASOURCE_PASSWORD}
+    username: ${DATASOURCE_USERNAME}
+#logging:
+#  config: classpath:logback-prod.xml
+telegram-config:
+  bot-username: ${TELEGRAM_BOT_USERNAME}
+  bot-token: ${TELEGRAM_BOT_TOKEN}
+bitbucketbot-local:
+  user:
+    login: ${BITBUCKET_LOGIN}
+    token: ${BITBUCKET_TOKEN}
+    telegram-id: ${TELEGRAM_ID}
+bitbucketbot:
+  bitbucket:
+    url-pull-request-open: ${BITBUCKET_URL}/rest/api/1.0/dashboard/pull-requests?limit=150&state=OPEN
+    url-pull-request-close: ${BITBUCKET_URL}/rest/api/1.0/dashboard/pull-requests?limit=150&closedSince=86400

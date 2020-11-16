@@ -1,0 +1,69 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="2020-10-25-create-table-pull-request" author="upagge">
+        <createTable tableName="pull_request">
+            <column name="id" type="integer" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="bitbucket_id" type="integer">
+                <constraints nullable="false"/>
+            </column>
+            <column name="repository_id" type="integer"/>
+            <column name="project_key" type="varchar(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="repository_slug" type="varchar(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="title" type="varchar(100)"/>
+            <column name="description" type="varchar(300)"/>
+            <column name="author_login" type="varchar(64)"/>
+            <column name="status" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="url" type="varchar(500)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="conflict" type="boolean">
+                <constraints nullable="false"/>
+            </column>
+            <column name="bitbucket_version" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="create_date" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="update_date" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="2020-10-25-create-table-pull-request-reviewer" author="upagge">
+        <createTable tableName="reviewer">
+            <column name="id" type="integer" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="pull_request_id" type="integer">
+                <constraints nullable="false" foreignKeyName="reviewer_pull_request_id_pull_request_id"
+                             references="pull_request(id)" deleteCascade="true"/>
+            </column>
+            <column name="person_login" type="varchar(64)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="status" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_change" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_smart_notify" type="datetime"/>
+        </createTable>
+
+        <addUniqueConstraint tableName="reviewer" columnNames="pull_request_id, person_login"/>
+    </changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.sadtech.bitbucketbot.local</groupId>
+    <artifactId>bitbucketbot-local</artifactId>
+    <version>0.0.1-RELEASE</version>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>bitbucket-starter</module>
+    </modules>
+
+    <properties>
+        <java.version>1.8</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+
+        <sadtech.bot.bitbucketbot.core.version>3.0.1-RELEASE</sadtech.bot.bitbucketbot.core.version>
+        <sadtech.bot.bitbucketbot.data.version>3.0.1-RELEASE</sadtech.bot.bitbucketbot.data.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.sadtech.bot.bitbucketbot</groupId>
+                <artifactId>bitbucketbot-core</artifactId>
+                <version>${sadtech.bot.bitbucketbot.core.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.sadtech.bot.bitbucketbot</groupId>
+                <artifactId>bitbucketbot-data</artifactId>
+                <version>${sadtech.bot.bitbucketbot.data.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.sadtech.bot.godfather</groupId>
+                <artifactId>telegram-bot</artifactId>
+                <version>0.0.1-RELEASE</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.liquibase</groupId>
+                <artifactId>liquibase-core</artifactId>
+                <version>3.8.9</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.postgresql</groupId>
+                <artifactId>postgresql</artifactId>
+                <version>42.2.16</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-configuration-processor</artifactId>
+                <version>2.3.4.RELEASE</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>1.18.16</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+</project>
